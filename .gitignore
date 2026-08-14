@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large media (hosted on CDN instead)
+/public/outer-motion-load.mp4
