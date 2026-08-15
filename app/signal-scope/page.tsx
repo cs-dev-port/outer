@@ -10,7 +10,7 @@ export default function SignalScopePage() {
     let stream: MediaStream | null = null;
 
     navigator.mediaDevices
-      .getUserMedia({ video: true })
+      .getUserMedia({ video: { facingMode: "environment" } })
       .then((mediaStream) => {
         stream = mediaStream;
         if (videoRef.current) {
