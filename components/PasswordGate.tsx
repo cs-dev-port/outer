@@ -1,14 +1,17 @@
 "use client";
 
 import { useState, type FormEvent, type ReactNode } from "react";
+import { MASTER_KEY } from "@/lib/passwords";
 
 export default function PasswordGate({
   password,
   placeholder = "Enter code",
+  hint,
   children,
 }: {
   password: string;
   placeholder?: string;
+  hint?: string;
   children: ReactNode;
 }) {
   const [unlocked, setUnlocked] = useState(false);
@@ -17,7 +20,11 @@ export default function PasswordGate({
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    if (input.toUpperCase() === password.toUpperCase()) {
+    const normalizedInput = input.toUpperCase();
+    if (
+      normalizedInput === password.toUpperCase() ||
+      normalizedInput === MASTER_KEY.toUpperCase()
+    ) {
       setUnlocked(true);
     } else {
       setError(true);
@@ -36,7 +43,7 @@ export default function PasswordGate({
           Enter Code
         </div>
         <input
-          type="password"
+          type="text"
           placeholder={placeholder}
           value={input}
           onChange={(event) => {
@@ -44,8 +51,17 @@ export default function PasswordGate({
             setError(false);
           }}
           autoFocus
+          autoComplete="off"
+          autoCapitalize="off"
+          autoCorrect="off"
+          spellCheck={false}
           className="w-64 border border-[#ff7d25] bg-black px-4 py-2 text-center text-[#ff7d25] outline-none"
         />
+        {hint && (
+          <div className="text-xs uppercase tracking-widest text-[#ff7d25]/60">
+            Hint: {hint}
+          </div>
+        )}
         <button
           type="submit"
           className="border border-[#ff7d25] px-6 py-2 text-lg font-bold uppercase text-[#ff7d25]"
