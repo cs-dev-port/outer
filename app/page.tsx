@@ -1,6 +1,6 @@
 import Hero from "@/components/Hero";
 import TranslationToolButton from "@/components/TranslationToolButton";
-import SignalScopeButton from "@/components/SignalScopeButton";
+import StoryChaptersButton from "@/components/StoryChaptersButton";
 import MapButton from "@/components/MapButton";
 import Spacer from "@/components/Spacer";
 
@@ -20,9 +20,9 @@ export default function Home() {
           <Hero />
           <Spacer />
           <Spacer />
-          <TranslationToolButton />
+          <StoryChaptersButton />
           <Spacer />
-          <SignalScopeButton />
+          <TranslationToolButton />
           <Spacer />
           <MapButton />
         </div>

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
-export default function SignalScopeButton() {
+export default function StoryChaptersButton() {
   const router = useRouter();
 
   return (
@@ -11,10 +11,10 @@ export default function SignalScopeButton() {
       className="flex cursor-pointer items-center justify-center text-[#ff7d25] text-4xl uppercase font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 3, ease: "easeOut", delay: 1 }}
-      onClick={() => router.push("/signal-scope")}
+      transition={{ duration: 3, ease: "easeOut", delay: 0.5 }}
+      onClick={() => router.push("/story-chapters")}
     >
-      Signal-Scope
+      Story Chapters
     </motion.div>
   );
 }
