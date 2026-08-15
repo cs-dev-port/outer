@@ -16,7 +16,7 @@ export default function Home() {
         playsInline
       />
       <div className="relative flex h-full w-full">
-        <div className="flex h-full w-1/2 origin-center scale-50 flex-col items-center justify-center sm:scale-75 md:scale-90 lg:scale-100">
+        <div className="flex h-full w-full origin-center scale-75 flex-col items-center justify-center sm:scale-90 md:w-1/2 md:scale-90 lg:scale-100">
           <Hero />
           <Spacer />
           <Spacer />
@@ -26,7 +26,7 @@ export default function Home() {
           <Spacer />
           <TipsButton />
         </div>
-        <div className="h-full w-1/2" />
+        <div className="hidden h-full w-1/2 md:block" />
       </div>
     </div>
   );
