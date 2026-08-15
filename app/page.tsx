@@ -16,7 +16,7 @@ export default function Home() {
         playsInline
       />
       <div className="relative flex h-full w-full">
-        <div className="flex h-full w-1/2 flex-col items-center justify-center">
+        <div className="flex h-full w-1/2 origin-center scale-50 flex-col items-center justify-center sm:scale-75 md:scale-90 lg:scale-100">
           <Hero />
           <Spacer />
           <Spacer />

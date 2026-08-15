@@ -8,7 +8,7 @@ export default function SignalScopeButton() {
 
   return (
     <motion.div
-      className="flex cursor-pointer items-center justify-center text-[#ff7d25] text-xl uppercase font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] sm:text-2xl md:text-3xl lg:text-4xl"
+      className="flex cursor-pointer items-center justify-center text-[#ff7d25] text-4xl uppercase font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 3, ease: "easeOut", delay: 1 }}
