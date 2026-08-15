@@ -8,7 +8,7 @@ export type NomaiWriting = {
 };
 
 export const nomaiWritings: Record<string, NomaiWriting> = {
-    oneasdsad: {
+    one: {
     content: "this message was scrambled now its not.",
     action: "text",
   },
