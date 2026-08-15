@@ -13,7 +13,9 @@ export default function TranslationToolPage() {
   const chimeRef = useRef<HTMLAudioElement | null>(null);
   const scanningRef = useRef(true);
   const [error, setError] = useState<string | null>(null);
-  const [status, setStatus] = useState("Scanning...");
+  const [status, setStatus] = useState(
+    "< ! > untranslated Nomai writing < ! >",
+  );
 
   useEffect(() => {
     const chime = new Audio(FOUND_CHIME_SRC);
