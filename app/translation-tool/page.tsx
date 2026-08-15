@@ -113,7 +113,12 @@ export default function TranslationToolPage() {
         )}
       </div>
       {!error && (
-        <div className="text-sm uppercase tracking-widest text-[#ff7d25]">
+        <div
+          className="rounded px-6 py-3 text-center text-sm uppercase tracking-widest text-white"
+          style={{
+            background: "radial-gradient(circle, #2e9589, black)",
+          }}
+        >
           {status}
         </div>
       )}
