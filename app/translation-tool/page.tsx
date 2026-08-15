@@ -10,7 +10,7 @@ export default function TranslationToolPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const scanningRef = useRef(true);
   const [error, setError] = useState<string | null>(null);
-  const [status, setStatus] = useState("Scanning for QR code...");
+  const [status, setStatus] = useState("Scanning...");
 
   useEffect(() => {
     let stream: MediaStream | null = null;
@@ -37,16 +37,20 @@ export default function TranslationToolPage() {
               0,
               0,
               canvas.width,
-              canvas.height
+              canvas.height,
             );
-            const code = jsQR(imageData.data, imageData.width, imageData.height);
+            const code = jsQR(
+              imageData.data,
+              imageData.width,
+              imageData.height,
+            );
 
             if (code) {
               handleScan(code.data);
             }
           } catch (err) {
             setStatus(
-              `Scan error: ${err instanceof Error ? err.message : String(err)}`
+              `Scan error: ${err instanceof Error ? err.message : String(err)}`,
             );
           }
         }
@@ -85,7 +89,9 @@ export default function TranslationToolPage() {
         frameId = requestAnimationFrame(scanFrame);
       })
       .catch((err) => {
-        setError(err instanceof Error ? err.message : "Unable to access camera");
+        setError(
+          err instanceof Error ? err.message : "Unable to access camera",
+        );
       });
 
     return () => {
@@ -96,25 +102,23 @@ export default function TranslationToolPage() {
   }, [router]);
 
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-center gap-4 overflow-hidden bg-black">
-      <div className="relative flex aspect-video w-[854px] max-w-[90vw] items-center justify-center overflow-hidden">
-        <video
-          ref={videoRef}
-          autoPlay
-          playsInline
-          muted
-          className="h-full w-full object-cover"
-        />
-        <canvas ref={canvasRef} className="hidden" />
-        {error && (
-          <div className="absolute text-2xl font-bold uppercase text-[#ff7d25]">
-            {error}
-          </div>
-        )}
-      </div>
+    <div className="relative flex h-screen w-screen items-center justify-center overflow-hidden bg-black">
+      <video
+        ref={videoRef}
+        autoPlay
+        playsInline
+        muted
+        className="h-full w-full object-cover"
+      />
+      <canvas ref={canvasRef} className="hidden" />
+      {error && (
+        <div className="absolute text-2xl font-bold uppercase text-[#ff7d25]">
+          {error}
+        </div>
+      )}
       {!error && (
         <div
-          className="rounded px-6 py-3 text-center text-sm uppercase tracking-widest text-white"
+          className="absolute bottom-12 rounded px-6 py-3 text-center text-sm uppercase tracking-widest text-white"
           style={{
             background: "radial-gradient(circle, #2e9589, black)",
           }}

@@ -14,11 +14,16 @@ export default async function NomaiWritingPage({
   }
 
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-center gap-8 overflow-hidden bg-black px-4">
-      <div className="text-center text-2xl font-bold uppercase text-[#ff7d25] sm:text-3xl md:text-4xl">
+    <div
+      className="flex h-screen w-screen flex-col items-center justify-center gap-8 overflow-hidden bg-black px-4"
+      style={{
+        background: "radial-gradient(circle, #2e9589, black)",
+      }}
+    >
+      <div className="text-center text-2xl font-bold uppercase text-white sm:text-3xl md:text-4xl">
         {writing.title}
       </div>
-      <p className="max-w-2xl text-center text-lg text-[#ff7d25] sm:text-xl">
+      <p className="max-w-2xl text-center text-lg text-white sm:text-xl">
         {writing.content}
       </p>
       {writing.action === "sound" && writing.soundSrc && (
