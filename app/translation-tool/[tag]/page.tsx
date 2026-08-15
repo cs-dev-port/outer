@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import VideoModal from "@/components/VideoModal";
 import PlaySoundButton from "@/components/PlaySoundButton";
+import ScrambleText from "@/components/ScrambleText";
 import { nomaiWritings } from "@/lib/nomai-writings";
 
 export default async function NomaiWritingPage({
@@ -20,9 +21,10 @@ export default async function NomaiWritingPage({
         background: "radial-gradient(circle, #2e9589, black)",
       }}
     >
-      <p className="max-w-2xl text-center text-lg text-white sm:text-xl">
-        {writing.content}
-      </p>
+      <ScrambleText
+        text={writing.content}
+        className="max-w-2xl text-center text-lg text-white sm:text-xl"
+      />
       {writing.action === "sound" && writing.soundSrc && (
         <PlaySoundButton label="Play Recording" soundSrc={writing.soundSrc} />
       )}
