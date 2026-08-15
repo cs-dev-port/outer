@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
-export default function MapButton() {
+export default function SettingsButton() {
   const router = useRouter();
 
   return (
@@ -12,9 +12,9 @@ export default function MapButton() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 3, ease: "easeOut", delay: 1.5 }}
-      onClick={() => router.push("/map")}
+      onClick={() => router.push("/settings")}
     >
-      Map
+      Settings
     </motion.div>
   );
 }
