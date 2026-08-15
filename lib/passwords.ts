@@ -2,7 +2,7 @@ export const chapterPasswords = {
   "chapter-1": "MARK",
   "chapter-2": "|.|.||...|..",
   "chapter-3": "saigon",
-  "chapter-4": "da-lat",
+  "chapter-4": ["dalat", "da-lat"],
 } as const;
 
 export type ChapterSlug = keyof typeof chapterPasswords;

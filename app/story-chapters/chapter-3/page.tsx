@@ -20,7 +20,9 @@ export default function Chapter3Page() {
       >
         <div className="flex flex-col items-center gap-8 bg-black px-10 py-8">
           <div className="text-center text-2xl font-bold uppercase text-[#ff7d25] sm:text-3xl md:text-4xl">
-            Chapter 3 - GIANTS DEEP & DARK BRAMBLE
+            CHAPTER 3
+            <br />
+            GIANTS DEEP & DARK BRAMBLE
           </div>
           <VideoModal label="Play Message" videoId={VIDEO_ID} />
         </div>

@@ -9,7 +9,7 @@ export default function PasswordGate({
   hint,
   children,
 }: {
-  password: string;
+  password: string | readonly string[];
   placeholder?: string;
   hint?: string;
   children: ReactNode;
@@ -21,10 +21,12 @@ export default function PasswordGate({
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     const normalizedInput = input.toUpperCase();
-    if (
-      normalizedInput === password.toUpperCase() ||
-      normalizedInput === MASTER_KEY.toUpperCase()
-    ) {
+    const validPasswords = Array.isArray(password) ? password : [password];
+    const isValid = validPasswords.some(
+      (valid) => normalizedInput === valid.toUpperCase()
+    );
+
+    if (isValid || normalizedInput === MASTER_KEY.toUpperCase()) {
       setUnlocked(true);
     } else {
       setError(true);

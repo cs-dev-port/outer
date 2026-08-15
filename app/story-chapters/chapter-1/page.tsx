@@ -21,7 +21,9 @@ export default function Chapter1Page() {
       >
         <div className="flex flex-col items-center gap-8 bg-black px-10 py-8">
           <div className="text-center text-2xl font-bold uppercase text-[#ff7d25] sm:text-3xl md:text-4xl">
-            CHAPTER 1 - TIMBER HEARTH
+            CHAPTER 1
+            <br />
+            TIMBER HEARTH
           </div>
           <div className="text-center text-2xl font-bold uppercase text-[#ff7d25] sm:text-3xl md:text-4xl">
             The world is going super nova in:

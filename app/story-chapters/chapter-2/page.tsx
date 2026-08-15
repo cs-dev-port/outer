@@ -16,10 +16,12 @@ export default function Chapter2Page() {
         }}
       >
         <div className="text-center text-2xl font-bold uppercase text-[#ff7d25] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] sm:text-3xl md:text-4xl">
-          Chapter 2 - BRITTLE HOLLOW & HOLLOWS LANTERN
+          CHAPTER 2
+          <br />
+          BRITTLE HOLLOW & HOLLOWS LANTERN
         </div>
         <div className="flex flex-col items-center gap-6">
-          <VideoModal label="Intro Message" videoId="dQw4w9WgXcQ" />
+          <VideoModal label="Play Message" videoId="dQw4w9WgXcQ" />
           <button className="border border-[#ff7d25] px-10 py-3 text-2xl font-bold uppercase text-[#ff7d25] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Map
           </button>
