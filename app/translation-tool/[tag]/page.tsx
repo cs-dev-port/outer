@@ -20,9 +20,6 @@ export default async function NomaiWritingPage({
         background: "radial-gradient(circle, #2e9589, black)",
       }}
     >
-      <div className="text-center text-2xl font-bold uppercase text-white sm:text-3xl md:text-4xl">
-        {writing.title}
-      </div>
       <p className="max-w-2xl text-center text-lg text-white sm:text-xl">
         {writing.content}
       </p>
