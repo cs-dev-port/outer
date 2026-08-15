@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
 import TranslationToolButton from "@/components/TranslationToolButton";
 import StoryChaptersButton from "@/components/StoryChaptersButton";
-import SettingsButton from "@/components/SettingsButton";
+import TipsButton from "@/components/TipsButton";
 import Spacer from "@/components/Spacer";
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
           <Spacer />
           <TranslationToolButton />
           <Spacer />
-          <SettingsButton />
+          <TipsButton />
         </div>
         <div className="h-full w-1/2" />
       </div>

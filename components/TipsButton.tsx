@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
-export default function SettingsButton() {
+export default function TipsButton() {
   const router = useRouter();
 
   return (
@@ -12,9 +12,9 @@ export default function SettingsButton() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 3, ease: "easeOut", delay: 1.5 }}
-      onClick={() => router.push("/settings")}
+      onClick={() => router.push("/tips")}
     >
-      Settings
+      Tool Tips
     </motion.div>
   );
 }
