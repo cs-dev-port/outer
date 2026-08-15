@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import jsQR from "jsqr";
 
-const FOUND_CHIME_SRC = "/found-chime.mp3";
+const FOUND_CHIME_SRC = "/code-sound.wav";
 
 export default function TranslationToolPage() {
   const router = useRouter();
