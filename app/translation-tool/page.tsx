@@ -28,15 +28,26 @@ export default function TranslationToolPage() {
       ) {
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
-        const ctx = canvas.getContext("2d");
+        const ctx = canvas.getContext("2d", { willReadFrequently: true });
 
         if (ctx) {
-          ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-          const code = jsQR(imageData.data, imageData.width, imageData.height);
+          try {
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const imageData = ctx.getImageData(
+              0,
+              0,
+              canvas.width,
+              canvas.height
+            );
+            const code = jsQR(imageData.data, imageData.width, imageData.height);
 
-          if (code) {
-            handleScan(code.data);
+            if (code) {
+              handleScan(code.data);
+            }
+          } catch (err) {
+            setStatus(
+              `Scan error: ${err instanceof Error ? err.message : String(err)}`
+            );
           }
         }
       }
@@ -52,8 +63,9 @@ export default function TranslationToolPage() {
         return;
       }
 
-      const match = url.pathname.match(/^\/translation-tool\/([^/]+)$/);
+      const match = url.pathname.match(/^\/translation-tool\/([^/]+)\/?$/);
       if (!match) {
+        setStatus(`Detected non-matching code: ${data}`);
         return;
       }
 
@@ -68,6 +80,7 @@ export default function TranslationToolPage() {
         stream = mediaStream;
         if (videoRef.current) {
           videoRef.current.srcObject = mediaStream;
+          videoRef.current.play().catch(() => {});
         }
         frameId = requestAnimationFrame(scanFrame);
       })
