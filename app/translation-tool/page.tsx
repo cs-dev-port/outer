@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import jsQR from "jsqr";
 
+const FOUND_CHIME_SRC = "/found-chime.mp3";
+
 export default function TranslationToolPage() {
   const router = useRouter();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -75,6 +77,7 @@ export default function TranslationToolPage() {
 
       scanningRef.current = false;
       setStatus(`Found: ${match[1]}`);
+      new Audio(FOUND_CHIME_SRC).play().catch(() => {});
       router.push(url.pathname);
     };
 

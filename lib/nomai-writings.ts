@@ -8,8 +8,17 @@ export type NomaiWriting = {
 };
 
 export const nomaiWritings: Record<string, NomaiWriting> = {
-  example: {
-    content: "Translated Nomai text goes here.",
+    one: {
+    content: "one.",
     action: "text",
   },
+  two: {
+    content: "two.",
+    action: "text",
+  },
+  three: {
+    content: "three.",
+    action: "text",
+  },
+
 };
