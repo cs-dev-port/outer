@@ -10,13 +10,22 @@ export default function TranslationToolPage() {
   const router = useRouter();
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const chimeRef = useRef<HTMLAudioElement | null>(null);
   const scanningRef = useRef(true);
   const [error, setError] = useState<string | null>(null);
   const [status, setStatus] = useState("Scanning...");
 
   useEffect(() => {
+    const chime = new Audio(FOUND_CHIME_SRC);
+    chime.preload = "auto";
+    chime.load();
+    chimeRef.current = chime;
+  }, []);
+
+  useEffect(() => {
     let stream: MediaStream | null = null;
     let frameId: number;
+    let navigateTimeout: ReturnType<typeof setTimeout>;
 
     const scanFrame = () => {
       const video = videoRef.current;
@@ -77,8 +86,16 @@ export default function TranslationToolPage() {
 
       scanningRef.current = false;
       setStatus(`Found: ${match[1]}`);
-      new Audio(FOUND_CHIME_SRC).play().catch(() => {});
-      router.push(url.pathname);
+
+      const chime = chimeRef.current;
+      if (chime) {
+        chime.currentTime = 0;
+        chime.play().catch(() => {});
+      }
+
+      navigateTimeout = setTimeout(() => {
+        router.push(url.pathname);
+      }, 500);
     };
 
     navigator.mediaDevices
@@ -100,6 +117,7 @@ export default function TranslationToolPage() {
     return () => {
       scanningRef.current = false;
       cancelAnimationFrame(frameId);
+      clearTimeout(navigateTimeout);
       stream?.getTracks().forEach((track) => track.stop());
     };
   }, [router]);
