@@ -19,20 +19,20 @@ export default function Chapter1Page() {
             "url(https://umnqakvebzkowroi.public.blob.vercel-storage.com/Images/chap1-bg.png)",
         }}
       >
-        <div className="flex flex-col items-center gap-8 bg-black px-10 py-8">
-          <div className="text-center text-2xl font-bold uppercase text-[#ff7d25] sm:text-3xl md:text-4xl">
+        <div className="flex max-h-full flex-col items-center gap-3 overflow-hidden bg-black px-6 py-4 sm:gap-6 sm:px-10 sm:py-6">
+          <div className="text-center text-lg font-bold uppercase text-[#ff7d25] sm:text-3xl md:text-4xl">
             CHAPTER 1
             <br />
             TIMBER HEARTH
           </div>
-          <div className="text-center text-2xl font-bold uppercase text-[#ff7d25] sm:text-3xl md:text-4xl">
+          <div className="text-center text-base font-bold uppercase text-[#ff7d25] sm:text-3xl md:text-4xl">
             The world is going super nova in:
           </div>
           <CountdownTimer target={SUPERNOVA_DATE} />
-          <div className="text-center text-lg font-bold uppercase text-[#ff7d25] sm:text-xl md:text-2xl">
+          <div className="text-center text-sm font-bold uppercase text-[#ff7d25] sm:text-xl md:text-2xl">
             Find the launch codes before then or it&apos;s game over.
           </div>
-          <div className="text-center text-sm uppercase text-[#ff7d25]">
+          <div className="text-center text-xs uppercase text-[#ff7d25] sm:text-sm">
             Use the translation tool to track Nomai writings and find the
             launch codes.
           </div>

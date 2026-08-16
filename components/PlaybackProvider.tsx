@@ -12,10 +12,10 @@ import {
 const MUSIC_SRC =
   "https://umnqakvebzkowroi.public.blob.vercel-storage.com/main-ost.m4a";
 
-const PlaybackContext = createContext(false);
+const VideoUnlockedContext = createContext(false);
 
-export function usePlayback() {
-  return useContext(PlaybackContext);
+export function useVideoUnlocked() {
+  return useContext(VideoUnlockedContext);
 }
 
 export default function PlaybackProvider({
@@ -24,7 +24,8 @@ export default function PlaybackProvider({
   children: ReactNode;
 }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [started, setStarted] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(false);
+  const [videoUnlocked, setVideoUnlocked] = useState(false);
 
   useEffect(() => {
     const audio = new Audio(MUSIC_SRC);
@@ -41,24 +42,26 @@ export default function PlaybackProvider({
     const audio = audioRef.current;
     if (!audio) return;
 
-    if (started) {
+    setVideoUnlocked(true);
+
+    if (musicPlaying) {
       audio.pause();
-      setStarted(false);
+      setMusicPlaying(false);
     } else {
       audio.play().catch(() => {});
-      setStarted(true);
+      setMusicPlaying(true);
     }
   };
 
   return (
-    <PlaybackContext.Provider value={started}>
+    <VideoUnlockedContext.Provider value={videoUnlocked}>
       {children}
       <button
         onClick={toggle}
         className="fixed bottom-4 right-4 z-50 border border-[#ff7d25] bg-black px-3 py-2 text-xs font-bold uppercase tracking-widest text-[#ff7d25]"
       >
-        {started ? "Stop" : "Start"}
+        {musicPlaying ? "Stop" : "Start"}
       </button>
-    </PlaybackContext.Provider>
+    </VideoUnlockedContext.Provider>
   );
 }

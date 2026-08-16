@@ -30,13 +30,13 @@ export default function CountdownTimer({ target }: { target: Date }) {
   ];
 
   return (
-    <div className="flex gap-8">
+    <div className="flex gap-4 sm:gap-8">
       {units.map((unit) => (
         <div key={unit.label} className="flex flex-col items-center">
-          <span className="text-5xl font-bold text-[#ff7d25] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          <span className="text-3xl font-bold text-[#ff7d25] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] sm:text-5xl">
             {String(unit.value).padStart(2, "0")}
           </span>
-          <span className="text-sm uppercase tracking-widest text-[#ff7d25] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          <span className="text-xs uppercase tracking-widest text-[#ff7d25] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] sm:text-sm">
             {unit.label}
           </span>
         </div>
