@@ -9,9 +9,29 @@ export default function BackgroundVideo({ src }: { src: string }) {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
     video.muted = true;
     video.defaultMuted = true;
-    video.play().catch(() => {});
+
+    const tryPlay = () => {
+      if (video.paused) {
+        video.play().catch(() => {});
+      }
+    };
+
+    tryPlay();
+    video.addEventListener("loadeddata", tryPlay);
+    video.addEventListener("canplay", tryPlay);
+    video.addEventListener("canplaythrough", tryPlay);
+
+    const retryInterval = setInterval(tryPlay, 1000);
+
+    return () => {
+      video.removeEventListener("loadeddata", tryPlay);
+      video.removeEventListener("canplay", tryPlay);
+      video.removeEventListener("canplaythrough", tryPlay);
+      clearInterval(retryInterval);
+    };
   }, []);
 
   return (

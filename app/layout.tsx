@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Mono } from "next/font/google";
+import SiteMusic from "@/components/SiteMusic";
 import "./globals.css";
 
 const spaceMono = Space_Mono({
@@ -19,7 +20,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${spaceMono.variable} h-full overflow-hidden antialiased`}
     >
-      <body className="flex h-full flex-col overflow-hidden">{children}</body>
+      <body className="flex h-full flex-col overflow-hidden">
+        <SiteMusic />
+        {children}
+      </body>
     </html>
   );
 }
