@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function BackgroundVideo({ src }: { src: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -26,10 +25,15 @@ export default function BackgroundVideo({ src }: { src: string }) {
 
     const retryInterval = setInterval(tryPlay, 1000);
 
+    document.addEventListener("touchstart", tryPlay, { passive: true });
+    document.addEventListener("pointerdown", tryPlay);
+
     return () => {
       video.removeEventListener("loadeddata", tryPlay);
       video.removeEventListener("canplay", tryPlay);
       video.removeEventListener("canplaythrough", tryPlay);
+      document.removeEventListener("touchstart", tryPlay);
+      document.removeEventListener("pointerdown", tryPlay);
       clearInterval(retryInterval);
     };
   }, []);
@@ -37,9 +41,7 @@ export default function BackgroundVideo({ src }: { src: string }) {
   return (
     <video
       ref={videoRef}
-      className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
-        playing ? "opacity-100" : "opacity-0"
-      }`}
+      className="pointer-events-none absolute inset-0 h-full w-full object-cover"
       src={src}
       autoPlay
       loop
@@ -49,7 +51,6 @@ export default function BackgroundVideo({ src }: { src: string }) {
       disablePictureInPicture
       disableRemotePlayback
       controls={false}
-      onPlaying={() => setPlaying(true)}
     />
   );
 }
