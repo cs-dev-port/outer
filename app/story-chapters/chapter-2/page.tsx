@@ -1,6 +1,10 @@
 import PasswordGate from "@/components/PasswordGate";
 import VideoModal from "@/components/VideoModal";
+import MapModal from "@/components/MapModal";
 import { chapterPasswords } from "@/lib/passwords";
+
+const MAP_SRC =
+  "https://www.google.com/maps/d/u/0/embed?mid=1HCJsZzaO1M5UYI9U8JGqcqKwVdHVuak&ehbc=2E312F";
 
 export default function Chapter2Page() {
   return (
@@ -18,13 +22,11 @@ export default function Chapter2Page() {
         <div className="text-center text-2xl font-bold uppercase text-[#ff7d25] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] sm:text-3xl md:text-4xl">
           CHAPTER 2
           <br />
-          BRITTLE HOLLOW & HOLLOWS LANTERN
+          BRITTLE HOLLOW & HOLLOW'S LANTERN
         </div>
         <div className="flex flex-col items-center gap-6">
           <VideoModal label="Play Message" videoId="dQw4w9WgXcQ" />
-          <button className="border border-[#ff7d25] px-10 py-3 text-2xl font-bold uppercase text-[#ff7d25] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            Map
-          </button>
+          <MapModal label="Map" src={MAP_SRC} />
         </div>
       </div>
     </PasswordGate>
