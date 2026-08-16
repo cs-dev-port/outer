@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import BackgroundVideo from "@/components/BackgroundVideo";
 import type { ChapterSlug } from "@/lib/passwords";
 
 const chapters: { label: string; slug: ChapterSlug; delay: number }[] = [
@@ -17,7 +16,14 @@ export default function Chapters() {
 
   return (
     <div className="relative flex h-screen w-screen items-center justify-center overflow-hidden bg-black">
-      <BackgroundVideo src="/outer-motion-load-compressed.mp4" />
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        src="/outer-motion-load-compressed.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
       <div className="relative flex flex-col items-center gap-6">
         {chapters.map((chapter) => (
           <motion.button
