@@ -15,23 +15,15 @@ export default function SiteMusic() {
     audio.preload = "auto";
     audioRef.current = audio;
 
-    const tryStart = () => {
-      audio
-        .play()
-        .then(() => setPlaying(true))
-        .catch(() => {});
-    };
+    const handlePlay = () => setPlaying(true);
+    const handlePause = () => setPlaying(false);
 
-    const handleFirstInteraction = () => {
-      tryStart();
-    };
-
-    document.addEventListener("pointerdown", handleFirstInteraction);
-    document.addEventListener("keydown", handleFirstInteraction);
+    audio.addEventListener("play", handlePlay);
+    audio.addEventListener("pause", handlePause);
 
     return () => {
-      document.removeEventListener("pointerdown", handleFirstInteraction);
-      document.removeEventListener("keydown", handleFirstInteraction);
+      audio.removeEventListener("play", handlePlay);
+      audio.removeEventListener("pause", handlePause);
       audio.pause();
     };
   }, []);
@@ -40,14 +32,10 @@ export default function SiteMusic() {
     const audio = audioRef.current;
     if (!audio) return;
 
-    if (playing) {
-      audio.pause();
-      setPlaying(false);
+    if (audio.paused) {
+      audio.play().catch(() => {});
     } else {
-      audio
-        .play()
-        .then(() => setPlaying(true))
-        .catch(() => {});
+      audio.pause();
     }
   };
 
