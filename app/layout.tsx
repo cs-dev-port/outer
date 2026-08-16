@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Mono } from "next/font/google";
-import SiteMusic from "@/components/SiteMusic";
+import PlaybackProvider from "@/components/PlaybackProvider";
 import "./globals.css";
 
 const spaceMono = Space_Mono({
@@ -21,8 +21,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${spaceMono.variable} h-full overflow-hidden antialiased`}
     >
       <body className="flex h-full flex-col overflow-hidden">
-        <SiteMusic />
-        {children}
+        <PlaybackProvider>{children}</PlaybackProvider>
       </body>
     </html>
   );

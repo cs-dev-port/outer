@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import PlayBackgroundButton from "@/components/PlayBackgroundButton";
+import PlaybackVideo from "@/components/PlaybackVideo";
 import type { ChapterSlug } from "@/lib/passwords";
 
 const chapters: { label: string; slug: ChapterSlug; delay: number }[] = [
@@ -17,7 +17,7 @@ export default function Chapters() {
 
   return (
     <div className="relative flex h-screen w-screen items-center justify-center overflow-hidden bg-black">
-      <PlayBackgroundButton src="/outer-motion-load-compressed.mp4" />
+      <PlaybackVideo src="/outer-motion-load-compressed.mp4" />
       <div className="relative flex flex-col items-center gap-6">
         {chapters.map((chapter) => (
           <motion.button
