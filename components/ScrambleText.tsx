@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 
 const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
-const PRE_SCRAMBLE_FRAMES = 12;
-const TICK_MS = 50;
+const PRE_SCRAMBLE_FRAMES = 6;
+const TICK_MS = 25;
+const CHARS_PER_TICK = 3;
 
 function randomChar() {
   return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
@@ -35,7 +36,10 @@ export default function ScrambleText({
 
     const interval = setInterval(() => {
       frame += 1;
-      const revealCount = Math.max(0, frame - PRE_SCRAMBLE_FRAMES);
+      const revealCount = Math.max(
+        0,
+        (frame - PRE_SCRAMBLE_FRAMES) * CHARS_PER_TICK,
+      );
       setDisplay(scramble(text, revealCount));
 
       if (revealCount >= text.length) {
