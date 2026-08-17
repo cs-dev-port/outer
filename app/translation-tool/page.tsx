@@ -25,6 +25,8 @@ export default function TranslationToolPage() {
   }, []);
 
   useEffect(() => {
+    scanningRef.current = true;
+
     let stream: MediaStream | null = null;
     let frameId: number;
     let navigateTimeout: ReturnType<typeof setTimeout>;
