@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import VideoModal from "@/components/VideoModal";
 import PlaySoundButton from "@/components/PlaySoundButton";
 import ScrambleText from "@/components/ScrambleText";
@@ -31,6 +32,12 @@ export default async function NomaiWritingPage({
       {writing.action === "video" && writing.videoId && (
         <VideoModal label="Play Video" videoId={writing.videoId} />
       )}
+      <Link
+        href="/"
+        className="border border-white px-6 py-2 text-sm font-bold uppercase text-white"
+      >
+        Return Home
+      </Link>
     </div>
   );
 }
