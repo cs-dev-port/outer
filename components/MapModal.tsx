@@ -35,7 +35,7 @@ export default function MapModal({
 
       {open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4">
-          <div className="relative aspect-[4/3] w-full max-w-3xl">
+          <div className="relative aspect-[4/3] w-full max-w-xs max-h-[70vh] sm:max-w-xl md:max-w-3xl">
             <button
               onClick={() => setOpen(false)}
               className="absolute -top-10 right-0 text-2xl font-bold uppercase text-[#ff7d25]"
