@@ -31,12 +31,6 @@ export default async function NomaiWritingPage({
       {writing.action === "video" && writing.videoId && (
         <VideoModal label="Play Video" videoId={writing.videoId} />
       )}
-      <a
-        href="/translation-tool"
-        className="border border-white px-10 py-3 text-lg font-bold uppercase text-white"
-      >
-        Scan Again
-      </a>
     </div>
   );
 }
