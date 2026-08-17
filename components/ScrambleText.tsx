@@ -14,7 +14,7 @@ function scramble(text: string, revealCount: number) {
   return text
     .split("")
     .map((char, index) => {
-      if (char === " ") return " ";
+      if (char === " " || char === "\n") return char;
       return index < revealCount ? char : randomChar();
     })
     .join("");
@@ -46,5 +46,9 @@ export default function ScrambleText({
     return () => clearInterval(interval);
   }, [text]);
 
-  return <p className={className}>{display}</p>;
+  return (
+    <p className={className} style={{ whiteSpace: "pre-line" }}>
+      {display}
+    </p>
+  );
 }
