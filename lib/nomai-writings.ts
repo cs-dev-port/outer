@@ -13,7 +13,7 @@ export const nomaiWritings: Record<string, NomaiWriting> = {
     action: "text",
   },
   "Start-Bell": {
-    content: "Bell: waiting",
+    content: "HAPPY BIRTHDAY MARK! you're the coolest white boy i know. 💯  thank you for being such a wonderful friend through all the ups and downs and long car ride debates. I hope you have an incredible adventure this year! please dont die 🫡",
     action: "text",
   },
   "Start-Lucas": {
