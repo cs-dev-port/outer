@@ -46,7 +46,7 @@ export const nomaiWritings: Record<string, NomaiWriting> = {
   },
   "Marks-D2": {
     content:
-      "Devin:Right... Just Pack the following into a bag: Phone - Wallet\n4 short sleeve shirts (maybe a nice one)\n2 pairs of shorts\n1 thin pajama bottom\n1 sweater\n1 belt\n1 pair of hiking shoes",
+      "Devin:Right... Just Pack the following into a bag: Phone - Wallet\n7 pairs of underwear\n4 pairs of short socks\n4 short sleeve shirts (maybe a nice one)\n2 pairs of shorts\n1 thin pajama bottom\n1 sweater\n1 belt\n1 pair of hiking shoes",
     action: "text",
   },
   "Marks-D3": {
