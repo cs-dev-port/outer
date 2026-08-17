@@ -19,20 +19,20 @@ export default function Chapter1Page() {
             "url(https://umnqakvebzkowroi.public.blob.vercel-storage.com/Images/chap1-bg.png)",
         }}
       >
-        <div className="flex max-h-full flex-col items-center gap-3 overflow-hidden bg-black px-6 py-4 sm:gap-6 sm:px-10 sm:py-6">
-          <div className="text-center text-lg font-bold uppercase text-[#ff7d25] sm:text-3xl md:text-4xl">
+        <div className="flex max-h-full max-w-full flex-col items-center overflow-hidden bg-black px-[3vw] py-[2vh] gap-[1.5vh]">
+          <div className="text-center font-bold uppercase text-[#ff7d25] text-[clamp(0.9rem,4.5vh,2.5rem)]">
             CHAPTER 1
             <br />
             TIMBER HEARTH
           </div>
-          <div className="text-center text-base font-bold uppercase text-[#ff7d25] sm:text-3xl md:text-4xl">
+          <div className="text-center font-bold uppercase text-[#ff7d25] text-[clamp(0.8rem,3.5vh,2.5rem)]">
             The world is going super nova in:
           </div>
           <CountdownTimer target={SUPERNOVA_DATE} />
-          <div className="text-center text-sm font-bold uppercase text-[#ff7d25] sm:text-xl md:text-2xl">
+          <div className="text-center font-bold uppercase text-[#ff7d25] text-[clamp(0.7rem,2.5vh,1.5rem)]">
             Find the launch codes before then or it&apos;s game over.
           </div>
-          <div className="text-center text-xs uppercase text-[#ff7d25] sm:text-sm">
+          <div className="text-center uppercase text-[#ff7d25] text-[clamp(0.6rem,1.8vh,0.9rem)]">
             Use the translation tool to track Nomai writings and find the
             launch codes.
           </div>

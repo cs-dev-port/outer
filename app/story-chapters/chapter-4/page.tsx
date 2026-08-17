@@ -1,8 +1,11 @@
 import PasswordGate from "@/components/PasswordGate";
 import VideoModal from "@/components/VideoModal";
+import MapModal from "@/components/MapModal";
 import { chapterPasswords } from "@/lib/passwords";
 
 const VIDEO_ID = "dQw4w9WgXcQ";
+const MAP_SRC =
+  "https://www.google.com/maps/d/u/0/embed?mid=1sQtCPqGo1DXfhGCdGi2cuoFC0q5j3kc&ehbc=2E312F";
 
 export default function Chapter4Page() {
   return (
@@ -25,9 +28,7 @@ export default function Chapter4Page() {
         </div>
         <div className="flex flex-col items-center gap-6">
           <VideoModal label="Play Message" videoId={VIDEO_ID} />
-          <button className="border border-[#ff7d25] px-10 py-3 text-2xl font-bold uppercase text-[#ff7d25]">
-            Map
-          </button>
+          <MapModal label="Map" src={MAP_SRC} />
         </div>
       </div>
     </PasswordGate>
