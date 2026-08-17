@@ -9,11 +9,12 @@ export type NomaiWriting = {
 
 export const nomaiWritings: Record<string, NomaiWriting> = {
   "Start-Devin1": {
-    content: "Devin: Happy Birthday Buddy ٩(◕‿◕｡)۶.",
+    content:
+      "Devin: Happy Birthday Buddy ٩(◕‿◕｡)۶.\nI couldnt ask for a better best friend you're the coolest person in all of timber hearth. and I love you mark 🫵",
     action: "text",
   },
   "Start-Bell": {
-    content: "HAPPY BIRTHDAY MARK! you're the coolest white boy i know. 💯  thank you for being such a wonderful friend through all the ups and downs and long car ride debates. I hope you have an incredible adventure this year! please dont die 🫡",
+    content: "Bell: HAPPY BIRTHDAY MARK! you're the coolest white boy i know. 💯  thank you for being such a wonderful friend through all the ups and downs and long car ride debates. I hope you have an incredible adventure this year! please dont die 🫡",
     action: "text",
   },
   "Start-Lucas": {
