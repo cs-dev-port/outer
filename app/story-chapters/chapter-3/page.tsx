@@ -1,8 +1,6 @@
 import PasswordGate from "@/components/PasswordGate";
-import VideoModal from "@/components/VideoModal";
+import MessageBox from "@/components/MessageBox";
 import { chapterPasswords } from "@/lib/passwords";
-
-const VIDEO_ID = "dQw4w9WgXcQ";
 
 export default function Chapter3Page() {
   return (
@@ -24,7 +22,7 @@ export default function Chapter3Page() {
             <br />
             GIANTS DEEP & DARK BRAMBLE
           </div>
-          <VideoModal label="Play Message" videoId={VIDEO_ID} />
+          <MessageBox message="From the 23rd through the 26th, we'll trek through the violent monsoons of Giant's Deep, searching for whatever secrets lie beneath its storms. If the Nomai records are correct, our path may eventually lead us toward Dark Bramble, where strange creatures and far worse things are said to lurk within the fog." />
         </div>
       </div>
     </PasswordGate>

@@ -1,5 +1,5 @@
 import PasswordGate from "@/components/PasswordGate";
-import VideoModal from "@/components/VideoModal";
+import MessageBox from "@/components/MessageBox";
 import MapModal from "@/components/MapModal";
 import { chapterPasswords } from "@/lib/passwords";
 
@@ -25,7 +25,7 @@ export default function Chapter2Page() {
           BRITTLE HOLLOW & HOLLOW'S LANTERN
         </div>
         <div className="flex flex-col items-center gap-6">
-          <VideoModal label="Play Message" videoId="dQw4w9WgXcQ" />
+          <MessageBox message="These ancient Nomai ruins may reveal the proper route to Giant's Deep. We'll remain here from the 21st through the 22nd, gathering data, and depart on the 23rd." />
           <MapModal label="Map" src={MAP_SRC} />
         </div>
       </div>

@@ -1,10 +1,8 @@
 import PasswordGate from "@/components/PasswordGate";
 import CountdownTimer from "@/components/CountdownTimer";
-import VideoModal from "@/components/VideoModal";
 import { chapterPasswords } from "@/lib/passwords";
 
-const SUPERNOVA_DATE = new Date(2026, 7, 18, 20, 0, 0);
-const INTRO_VIDEO_ID = "dQw4w9WgXcQ";
+const SUPERNOVA_DATE = new Date(2026, 7, 18, 19, 47, 0);
 
 export default function Chapter1Page() {
   return (
@@ -36,7 +34,6 @@ export default function Chapter1Page() {
             Use the translation tool to track Nomai writings and find the
             launch codes.
           </div>
-          <VideoModal label="Replay Intro" videoId={INTRO_VIDEO_ID} />
         </div>
       </div>
     </PasswordGate>

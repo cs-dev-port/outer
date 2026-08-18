@@ -8,3 +8,5 @@ export const chapterPasswords = {
 export type ChapterSlug = keyof typeof chapterPasswords;
 
 export const MASTER_KEY = "admin";
+
+export const finalVideoPassword = "happy-birthday";
