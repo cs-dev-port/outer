@@ -26,7 +26,11 @@ export default function Chapter4Page() {
           THE EYE OF THE UNIVERSE
         </div>
         <div className="flex flex-col items-center gap-6">
-          <MessageBox message={"If you're reading this, we made it through Dark Bramble and successfully warped to the Eye of the Universe. This is excellent news.\n\nWe'll remain here for the duration of the 27th, rest for the night, and on the 28th, reset the universe."} />
+          <MessageBox
+            message={
+              "If you're reading this, we made it through Giants Deep, Dark Bramble and successfully warped to the Eye of the Universe. This is excellent news.\n\nWe'll remain here for the duration of the 27th, rest for the night, and on the 28th, reset the universe."
+            }
+          />
           <MapModal label="Map" src={MAP_SRC} />
         </div>
       </div>
