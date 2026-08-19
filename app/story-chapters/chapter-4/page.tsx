@@ -1,8 +1,7 @@
 import PasswordGate from "@/components/PasswordGate";
 import MessageBox from "@/components/MessageBox";
 import MapModal from "@/components/MapModal";
-import LockedVideoButton from "@/components/LockedVideoButton";
-import { chapterPasswords, finalVideoPassword } from "@/lib/passwords";
+import { chapterPasswords } from "@/lib/passwords";
 
 const MAP_SRC =
   "https://www.google.com/maps/d/u/0/embed?mid=1sQtCPqGo1DXfhGCdGi2cuoFC0q5j3kc&ehbc=2E312F";
@@ -29,12 +28,6 @@ export default function Chapter4Page() {
         <div className="flex flex-col items-center gap-6">
           <MessageBox message={"If you're reading this, we made it through Dark Bramble and successfully warped to the Eye of the Universe. This is excellent news.\n\nWe'll remain here for the duration of the 27th, rest for the night, and on the 28th, reset the universe."} />
           <MapModal label="Map" src={MAP_SRC} />
-          <LockedVideoButton
-            label="Play Final Message"
-            password={finalVideoPassword}
-            videoId="dQw4w9WgXcQ"
-            placeholder="Devin will enter code"
-          />
         </div>
       </div>
     </PasswordGate>
